@@ -32,5 +32,4 @@ jobs:
   - template: go_module_main.yml@templates
     # Template parameters
     parameters:
-      pypiAzureArtifactFeed: astral-pypi
       publishDocs: true

@@ -3,8 +3,10 @@ test:
 	# Set up variables.
 	$(eval STD_OUT_LOG := ./zdevelop/tests/_reports/test_stdout.txt)
 	$(eval STD_ERR_LOG := ./zdevelop/tests/_reports/test_stderr.txt)
+	$(eval FULL_LOG := ./zdevelop/tests/_reports/test_full.txt)
 	$(eval COVERAGE_LOG := ./zdevelop/tests/_reports/coverage.out)
-	$(eval TEST_REPORT := ./zdevelop/tests/_reports/test_report.html)
+	$(eval JUNIT_REPORT := ./zdevelop/tests/_reports/junit.xml)
+	$(eval TEST_REPORT := ./zdevelop/tests/_reports/test_results.html)
 	$(eval COVERAGE_REPORT := ./zdevelop/tests/_reports/coverage.html)
 	# make the reports directory
 	-mkdir ./zdevelop/tests/_reports
@@ -15,23 +17,12 @@ test:
 	# happen here to send stdout and stderr to tee separately ( in order to
 	# both save and display them ), but the internet says this is the solution and it
 	# works.
-	-(\
-		go test \
-			-v \
-			-failfast \
-			-covermode=count \
-			-coverprofile=$(COVERAGE_LOG) \
-            -coverpkg=./... \
-			./... \
-			--minimum-coverage=0.85 \
-        | tee "$(STD_OUT_LOG)" \
-    ) 3>&1 1>&2 2>&3 \
-        | tee "$(STD_ERR_LOG)"
-    # Build Reports
-	-go tool cover -html=$(COVERAGE_LOG)
-	-go-test-html "$(STD_OUT_LOG)" "$(STD_ERR_LOG)" "$(TEST_REPORT)"
+	-python3 ./zdevelop/make_scripts/go_make_test.py
+	cat $(FULL_LOG) | go-junit-report > $(JUNIT_REPORT)
 	# Open Reports
-	-open "$(TEST_REPORT)"
+	-xunit-viewer -r $(JUNIT_REPORT) -o $(TEST_REPORT)
+	-go tool cover -html=$(COVERAGE_LOG) -o $(COVERAGE_REPORT)
+	-python3 ./zdevelop/make_scripts/py_open_test_reports.py
 
 .PHONY: lint
 lint:
@@ -49,7 +40,7 @@ ifeq ($(py), )
 else
 	$(eval PY_PATH := $(py))
 endif
-	$(eval VENV_PATH := $(shell $(PY_PATH) ./zdevelop/make_scripts/make_venv.py))
+	$(eval VENV_PATH := $(shell $(PY_PATH) ./zdevelop/make_scripts/go_make_venv.py))
 	@echo "venv created! To enter virtual env, run:"
 	@echo ". ~/.bash_profile"
 	@echo "then run:"
@@ -58,21 +49,24 @@ endif
 .PHONY: install-dev
 install-dev:
 	pip install --upgrade pip
-	pip install --no-cache-dir -e .[build,doc]
+	pip install --no-cache-dir -e .[build,doc,dev,lint,test]
+	go mod tidy
 
-# Installs command line tools into global GOPATH.
-.PHONY: install-globals
+# Installs command line tools for development
+.PHONY: install-tools
 install-globals:
-	$(eval CURRENT_DIR := $(shell pwd))
-	cd ~/
 	# Creates html report of tests.
-	-go get -u github.com/ains/go-test-html
+	-go install github.com/ains/go-test-html
 	# Creates API doc server.
-	-go get -u golang.org/x/tools/cmd/godoc
+	-go install golang.org/x/tools/cmd/godoc
 	# Downloads module APIs from API server.
-	-go get -u github.com/illuscio-dev/docmodule-go
-	# swap back to the current directory.
-	cd $(current_dir)
+	-go install github.com/illuscio-dev/docmodule-go
+	# Linter
+	-go install github.com/mgechev/revive
+	# Converts to junit for making html reports
+	-go install github.com/jstemmer/go-junit-report
+	# Converts junit reports into pretty html
+	-npm i -g xunit-viewer
 
 # Creates docs.
 .PHONY: doc
@@ -84,7 +78,7 @@ doc:
 	docmodule-go
 	python setup.py build_sphinx -E
 	sleep 1
-	open ./zdocs/build/html/index.html
+	-python3 ./zdevelop/make_scripts/open_docs.py
 	# Remove Deleted files from git
 	git add -u
 	# Add any new files to git
@@ -92,6 +86,10 @@ doc:
 
 .PHONY: name
 name:
-	$(eval PATH_NEW := $(shell python3 ./zdevelop/make_scripts/make_name.py $(n)))
+	$(eval PATH_NEW := $(shell python3 ./zdevelop/make_scripts/go_make_name.py $(n)))
 	@echo "library renamed! to switch your current directory, use the following \
 	command:\ncd '$(PATH_NEW)'"
+
+.PHONY: proto
+proto:
+	python3 ./zdevelop/make_scripts/go_gen_proto.py

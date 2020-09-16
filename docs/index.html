@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Islelib-Go &mdash; islelib 0.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> islelib
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Islelib-Go</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li><a class="reference internal" href="#setting-up-your-library">Setting up your Library</a><ul>
+<li><a class="reference internal" href="#clone-islelib-go-from-github">1. Clone islelib-go from Github</a></li>
+<li><a class="reference internal" href="#pick-a-name">2. Pick a Name</a></li>
+<li><a class="reference internal" href="#pick-a-description">3. Pick a Description</a></li>
+<li><a class="reference internal" href="#create-a-virtual-environment">4. Create a Virtual Environment</a></li>
+<li><a class="reference internal" href="#install-the-dev-environment">5. Install the Dev Environment</a></li>
+<li><a class="reference internal" href="#initialize-a-new-git-repo">6. Initialize a new git repo</a></li>
+<li><a class="reference internal" href="#register-your-library">7. Register your library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-your-library">Writing Your Library</a><ul>
+<li><a class="reference internal" href="#style">1. Style</a></li>
+<li><a class="reference internal" href="#lint">2. Lint</a></li>
+<li><a class="reference internal" href="#re-format">3. Re-format</a></li>
+<li><a class="reference internal" href="#test">4. Test</a></li>
+<li><a class="reference internal" href="#document">5. Document</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploying-your-library">Deploying Your Library</a><ul>
+<li><a class="reference internal" href="#make-commits">1. Make Commits:</a></li>
+<li><a class="reference internal" href="#version">2. Version:</a></li>
+<li><a class="reference internal" href="#push">3. Push:</a></li>
+<li><a class="reference internal" href="#build">4. Build:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-quality-of-life-development-functions">Other Quality of Life Development Functions</a><ul>
+<li><a class="reference internal" href="#clean-caches">1. Clean Caches</a></li>
+<li><a class="reference internal" href="#scratch-folder">2. Scratch Folder</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">islelib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Islelib-Go</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="islelib-go">
+<h1>Islelib-Go<a class="headerlink" href="#islelib-go" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">islelib</span></code> is Illuscio’s python library template. To build your own documentation,
+simply start using it. Below we will show some example documentation with the basic
+functions of this library template.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#basic-usage"><span class="std std-ref">Basic Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#setting-up"><span class="std std-ref">Setting up your Library</span></a></p></li>
+<li><p><a class="reference internal" href="#writing"><span class="std std-ref">Writing Your Library</span></a></p></li>
+<li><p><a class="reference internal" href="#deploying"><span class="std std-ref">Deploying Your Library</span></a></p></li>
+<li><p><a class="reference internal" href="#qol"><span class="std std-ref">Other Quality of Life Development Functions</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="basic-usage">
+<span id="id1"></span><h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">islelib</span>
+<span class="go">[basic useage example goes here]</span>
+</pre></div>
+</div>
+<p>Islelib comes with a number of pre-built quality-of-life macros for developers so they
+can code more and manage less, most of which are accessed through <code class="docutils literal notranslate"><span class="pre">make</span></code> commands.</p>
+<p>In addition to your lib’s package folder, islelib has two other main directories:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">./zdocs</span></code> - where docs are built to and stored</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./zdevelop</span></code> - where tests, maintenance scripts, and other information is stored</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Islelib separates tests into their own zdevelop/tests directory. Because of the way
+go works, this only allows the importing of public APIs, so unit testing of private
+functions or method will still need to live alongside the regular files.</p>
+<p>The philosophy behind this is that most tests will be tests of the public APIs, and
+it leads to a cleaner repository to have tests tucked away in their own folder.</p>
+</div>
+<p>In addition, the following files are used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">./README.md</span></code> - brief description and pointer to doc link for <a class="reference external" href="https://github.com/">Github</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./setup.cfg</span></code> - when possible, settings for all tools are stored here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./setup.py</span></code> - required for sphinx build command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./revive.toml</span></code> - configuration for linting with <a class="reference external" href="https://github.com/mgechev/revive">Revive</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./Makefile</span></code> - contains make commands for the development features detailed in
+this doc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./azure_pipelines.yml</span></code> - build process definition for <a class="reference external" href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Azure Pipelines</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="setting-up-your-library">
+<span id="setting-up"></span><h1>Setting up your Library<a class="headerlink" href="#setting-up-your-library" title="Permalink to this headline">¶</a></h1>
+<p>Getting started is easy, just follow the below steps. Many of these steps include
+<code class="docutils literal notranslate"><span class="pre">Make</span></code> scripts that help you get up and running quickly. To run the <code class="docutils literal notranslate"><span class="pre">Make</span></code> commands,
+ensure that the active directory of your terminal session is <code class="docutils literal notranslate"><span class="pre">&quot;islelib-py&quot;</span></code></p>
+<div class="section" id="clone-islelib-go-from-github">
+<h2>1. Clone islelib-go from Github<a class="headerlink" href="#clone-islelib-go-from-github" title="Permalink to this headline">¶</a></h2>
+<p>navigate to where you wish to keep your project in terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">local_repository</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">bpeake</span><span class="o">-</span><span class="n">illuscio</span><span class="o">/</span><span class="n">islelib</span><span class="o">-</span><span class="n">go</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>once the library is cloned, move into it as your active directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="n">islelib</span><span class="o">-</span><span class="n">go</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pick-a-name">
+<h2>2. Pick a Name<a class="headerlink" href="#pick-a-name" title="Permalink to this headline">¶</a></h2>
+<p>Illuscio uses the ‘’isle’’ prefix convention (phonetically sounds like I-L/”Aye-EL” as
+opposed to “ill”. Examples include <code class="docutils literal notranslate"><span class="pre">isle_type</span></code>, <code class="docutils literal notranslate"><span class="pre">isle_collections</span></code>, etc.</p>
+<p>When you have chosen a name for your new lib, simply type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">name</span> <span class="n">n</span><span class="o">=</span><span class="n">libname</span>
+<span class="go">library renamed! to switch your current directory, use the following command:</span>
+<span class="go">cd &#39;/path/to/libname-py&#39;</span>
+</pre></div>
+</div>
+<p>… where <code class="docutils literal notranslate"><span class="pre">libname</span></code> is the name of your new library. This will:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>change the name of any packages with an __init__ to <code class="docutils literal notranslate"><span class="pre">libname</span></code> (uses a find and replace from the old name when applicable).</p></li>
+<li><p>change all of the relevant setup.cfg options to <code class="docutils literal notranslate"><span class="pre">libname</span></code></p></li>
+<li><p>change the top level folder to <code class="docutils literal notranslate"><span class="pre">libname-py</span></code></p></li>
+<li><p>remove old <code class="docutils literal notranslate"><span class="pre">islelib.egg</span></code> folder</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="pick-a-description">
+<h2>3. Pick a Description<a class="headerlink" href="#pick-a-description" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">./setup.cfg</span></code> file, under the <code class="docutils literal notranslate"><span class="pre">[metadata]</span></code> header, change the <code class="docutils literal notranslate"><span class="pre">description</span></code>
+field to a brief description of your project.</p>
+</div>
+<div class="section" id="create-a-virtual-environment">
+<h2>4. Create a Virtual Environment<a class="headerlink" href="#create-a-virtual-environment" title="Permalink to this headline">¶</a></h2>
+<p>Although this is a go library, python is used for creating higher-level documentation
+through sphinx, allowing the creation of high-level tutorial docs. See below for more
+information.</p>
+<p>To set up a virtual environment through virtualenv, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">venv</span>
+</pre></div>
+</div>
+<p>This will install a new virtual environment at <code class="docutils literal notranslate"><span class="pre">~/venvs/[libname]-go-[##</span> <span class="pre">python</span> <span class="pre">version]</span></code>.</p>
+<p>Example name: <code class="docutils literal notranslate"><span class="pre">libname-go-37</span></code></p>
+<p>By default, this command uses your current “python3” alias, but a different version
+can be supplied with a <cite>py=</cite> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">venv</span> <span class="n">py</span><span class="o">=</span><span class="s2">&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3&quot;</span>
+<span class="go">venv created! To enter virtual env, run :</span>
+<span class="go">. ~/.bash_profile</span>
+<span class="go">then run:</span>
+<span class="go">env_go-libname-37</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">venv</span></code> also registers the environment and library directory to your ~/.bash_profile.
+This allows you to easily enter a development environment in terminal by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">env_go</span><span class="o">-</span><span class="n">libname</span><span class="o">-</span><span class="mi">37</span>
+</pre></div>
+</div>
+<p>… where <cite>libname</cite> is the name of your lib and <cite>37</cite> is the python version of the venv.
+This command is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">libname</span><span class="o">-</span><span class="n">py</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">~/</span><span class="n">venvs</span><span class="o">/</span><span class="n">libname</span><span class="o">-</span><span class="n">go</span><span class="o">-</span><span class="mi">37</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>In order to use the new alias, you will need to refresh your current terminal session by
+typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">.</span> <span class="o">~/.</span><span class="n">bash_profile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-the-dev-environment">
+<h2>5. Install the Dev Environment<a class="headerlink" href="#install-the-dev-environment" title="Permalink to this headline">¶</a></h2>
+<p>islelib already comes pre-built with all the options and tools needed to write a generic
+library. To install these tools into a python environment, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">install</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>These tools include automation for building, testing and docing your new
+library.</p>
+<p>You will need to have Make installed on your machine. For OSX, you will be prompted
+to install make through XCode when you attempt to run this command if it is not
+already installed.</p>
+</div>
+<div class="section" id="initialize-a-new-git-repo">
+<h2>6. Initialize a new git repo<a class="headerlink" href="#initialize-a-new-git-repo" title="Permalink to this headline">¶</a></h2>
+<p>You should delete the existing <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder for the repository, then initialize a
+clean repo by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">git</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>In the future, you may wish to cherry-pick commits / updates to this template into
+your own libraries. A guide for how to do that can be found here:</p>
+<p>[Guide needs to be written]</p>
+</div>
+<div class="section" id="register-your-library">
+<h2>7. Register your library<a class="headerlink" href="#register-your-library" title="Permalink to this headline">¶</a></h2>
+<p>Please reference the relevant documentation for registering your library in Github,
+Readthedocs, Azure Pipelines, etc. Links to relevant guides can be found below:</p>
+<p>[Guides need to be written]</p>
+</div>
+</div>
+<div class="section" id="writing-your-library">
+<span id="writing"></span><h1>Writing Your Library<a class="headerlink" href="#writing-your-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="style">
+<h2>1. Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<p>Illuscio’s style guide is simple and straightforward:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><a class="reference external" href="https://golang.org/cmd/gofmt/">Gofmt</a> first</p></li>
+<li><p><a class="reference external" href="https://github.com/mgechev/revive">Revive</a> second</p></li>
+<li><p>When 1 &amp; 2 contradict: see 1</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="lint">
+<h2>2. Lint<a class="headerlink" href="#lint" title="Permalink to this headline">¶</a></h2>
+<p>To check the formatting of your library, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p>This will run the following tools to tell you where adjustments need to be made:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mgechev/revive">Revive</a></p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="https://github.com/mgechev/revive">Revive</a> will check your formatting and report any instances where
+code does not conform to it’s standards. The configuration file for which rules revive
+enforces is found in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">revive</span><span class="o">.</span><span class="n">toml</span>
+</pre></div>
+</div>
+<p>These lint checks are also performed during deployment, and will cause failed code to
+be kept from deploying to production.</p>
+</div>
+<div class="section" id="re-format">
+<h2>3. Re-format<a class="headerlink" href="#re-format" title="Permalink to this headline">¶</a></h2>
+<p>Strict pep8 and Black adherence, while useful in many ways to the organization, can be
+annoying and distracting to individual engineers. To help with this, the islelib
+template comes with tools to re-format your code for you.</p>
+<p>To re-format your code, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="nb">format</span>
+</pre></div>
+</div>
+<p>This will run the following tools:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://golang.org/cmd/gofmt/">gofmt</a></p></li>
+</ul>
+</div></blockquote>
+<p>With these tools, keeping your code properly formatted is minimally invasive, and as an
+organization will lead to a more consistent, maintainable codebase.</p>
+</div>
+<div class="section" id="test">
+<h2>4. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>Tests are placed in <code class="docutils literal notranslate"><span class="pre">zdevelop/tests</span></code>, and use the <a class="reference external" href="https://golang.org/pkg/testing/">testing</a> library. To run your
+tests type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>… and watch the magic happen. This macro also creates coverage and error reports.
+Coverage reports show what percentage of each file’s code is tested. These reports can
+be found in the following locations, and will be automatically opened in your default
+browser once the tests complete:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>results: <code class="docutils literal notranslate"><span class="pre">zdevelop/tests/_reports/test_report.html</span></code></p></li>
+<li><p>coverage: <code class="docutils literal notranslate"><span class="pre">zdevelop/tests/_reports/coverage/coverage.out</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Illuscio requires &gt;= 85% code coverage in all files to publish a library. Libraries
+with less than 85% coverage in any given file will be kicked back or will need to have
+an exception granted.</p>
+<p>Likewise, code will be tested upon deployment and kicked back in the case of failures.
+The brief example tests in this library includes a failed test.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This template contains a testing dependency for <a class="reference external" href="https://github.com/stretchr/testify">testify</a>, which is suggested for
+making asserts and setup / teardown groups.</p>
+</div>
+</div>
+<div class="section" id="document">
+<h2>5. Document<a class="headerlink" href="#document" title="Permalink to this headline">¶</a></h2>
+<p>islelib uses a combination of <a class="reference external" href="https://godoc.org/golang.org/x/tools/cmd/godoc">GoDoc</a> and <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> to create it’s documentation which
+enables the creation of high-level docs / tutorials using (which godoc is not well
+uited for) .rst files and <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a>, which can then link to traditional API docs created
+using <a class="reference external" href="https://godoc.org/golang.org/x/tools/cmd/godoc">GoDoc</a>.</p>
+<p>High level documentation’s entry point is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zdocs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>Which is where the text you are currently reading is located.</p>
+<p>During the build process, API documentation is automatically generated from <a class="reference external" href="https://godoc.org/golang.org/x/tools/cmd/godoc">GoDoc</a>
+and included as static files. In order to link to this generated API docs within the
+high level docs, type the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>API documentation is created using godoc and can be
+`found here &lt;_static/godoc-root.html&gt;`_.
+</pre></div>
+</div>
+<p>Example: API documentation is created using godoc and can be
+<a class="reference external" href="_static/godoc-root.html">found here</a>.</p>
+<p>To build docs for your new library, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">doc</span>
+</pre></div>
+</div>
+<p>Docs will be generated at <code class="docutils literal notranslate"><span class="pre">./zdocs/_build/index.html</span></code>. This command will also open
+the newly created documentation in your default browser.</p>
+</div>
+</div>
+<div class="section" id="deploying-your-library">
+<span id="deploying"></span><h1>Deploying Your Library<a class="headerlink" href="#deploying-your-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="make-commits">
+<h2>1. Make Commits:<a class="headerlink" href="#make-commits" title="Permalink to this headline">¶</a></h2>
+<p>Make your commits as you work. Your commits will be made to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch, changes
+are pushed to master automatically once builds are passed.</p>
+</div>
+<div class="section" id="version">
+<h2>2. Version:<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>The major / minor version of the library are set in the <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> file under
+<code class="docutils literal notranslate"><span class="pre">version:target</span></code>.</p>
+<p>Patch versions are generated automatically by the build system. So if <code class="docutils literal notranslate"><span class="pre">version:target</span></code>
+is <code class="docutils literal notranslate"><span class="pre">1.2</span></code> and the last published build was <code class="docutils literal notranslate"><span class="pre">1.2.4</span></code> the next build created will
+become <code class="docutils literal notranslate"><span class="pre">1.2.5</span></code>.</p>
+<p>When a new major / minor version bump is desired, simply change the <code class="docutils literal notranslate"><span class="pre">version:target</span></code>
+value, ie <code class="docutils literal notranslate"><span class="pre">1.3</span></code> or <code class="docutils literal notranslate"><span class="pre">2.0</span></code>.</p>
+</div>
+<div class="section" id="push">
+<h2>3. Push:<a class="headerlink" href="#push" title="Permalink to this headline">¶</a></h2>
+<p>When you are ready, push your code to github. This will set off a chain of events that
+will:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>automatically run formatting and unit tests</p></li>
+<li><p>if tests are passed, build and push your library to be available to other developers</p></li>
+<li><p>builds and published documentation to <a class="reference external" href="https://aws.amazon.com/s3/">Amazon S3</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="build">
+<h2>4. Build:<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>islelib uses <a class="reference external" href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Azure Pipelines</a> to automatically run builds.</p>
+<p>For more information on azure builds, see the <a class="reference external" href="https://github.com/illuscio-dev/azure-pipelines-templates">azure build templates repo</a>.</p>
+</div>
+</div>
+<div class="section" id="other-quality-of-life-development-functions">
+<span id="qol"></span><h1>Other Quality of Life Development Functions<a class="headerlink" href="#other-quality-of-life-development-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clean-caches">
+<h2>1. Clean Caches<a class="headerlink" href="#clean-caches" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> will clear the following files from your library:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pytest cache</p></li>
+<li><p>mypy cache</p></li>
+<li><p>.coverage cache</p></li>
+<li><p>./build directory</p></li>
+<li><p>./dist directory</p></li>
+<li><p>all .pyc files in the active directory tree</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">build</span></code> folder in <code class="docutils literal notranslate"><span class="pre">./zdevelop/docs</span></code></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">.idea</span></code> folder generated by pycharm to reset pycharm’s cache</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="scratch-folder">
+<h2>2. Scratch Folder<a class="headerlink" href="#scratch-folder" title="Permalink to this headline">¶</a></h2>
+<p>The folder <code class="docutils literal notranslate"><span class="pre">zdevelop/scratch</span></code> is included in .gitignore, so you can store scratch work
+to do quick tests in this directory without accidentally causing a commit conflict.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright &#39;2020, Illuscio&#39;
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

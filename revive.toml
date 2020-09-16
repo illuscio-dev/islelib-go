@@ -1,5 +1,5 @@
 # When set to false, ignores files with "GENERATED" header, similar to golint
-ignoreGeneratedHeader = true
+ignoreGeneratedHeader = false
 
 # Sets the default severity to "warning"
 severity = "error"
@@ -36,7 +36,7 @@ warningCode = 1
 # provide a more precise measure of the difficulty of understanding the code. Enforcing
 # a maximum complexity per function helps to keep code readable and maintainable.
 [rule.cognitive-complexity]
-  arguments =[8]
+arguments =[8]
 
 # Methods or fields of struct that have names different only by capitalization could be
 # confusing.
@@ -56,7 +56,7 @@ warningCode = 1
 # Configuration of the `cyclomatic` rule. Here we specify that
 # the rule should fail if it detects code with higher complexity than 10.
 [rule.cyclomatic]
-    arguments = [10]
+arguments = [10]
 
 # Packages exposing functions that can stop program execution by exiting are hard to
 # reuse. This rule looks for program exits in functions other than main() or init().
@@ -92,7 +92,7 @@ warningCode = 1
 
 # Functions returning too many results can be hard to understand/use.
 [rule.function-result-limit]
-  arguments =[3]
+arguments =[3]
 
 # Typically, functions with names prefixed with Get are supposed to return a value.
 [rule.get-return]
@@ -117,7 +117,7 @@ warningCode = 1
 
 # Warns in the presence of code lines longer than a configured maximum.
 [rule.line-length-limit]
-    arguments = [88]
+arguments = [88]
 
 # A method that modifies its receiver value can have undesired behavior.
 # The modification can be also the root of a bug because the actual value receiver could
@@ -156,7 +156,7 @@ warningCode = 1
 
 # This rule warns when variable or package naming conventions are not followed.
 [rule.var-naming]
-    arguments = [["HTTP", "ID", "JSON", "API"],[]]
+arguments = [["HTTP", "ID", "JSON", "API"],[]]
 
 # This rule proposes simplifications of variable declarations.
 [rule.var-declaration]

@@ -25,11 +25,13 @@ pr:
 
 variables:
   # Link to the variables template.
-  - template: variables.yml@templates
+  - template: V2/variables.yml@templates
 
 jobs:
   # Link to the pipeline template.
-  - template: go_module_main.yml@templates
+  - template: V2/main.yml@templates
     # Template parameters
     parameters:
       publishDocs: true
+      language: GO
+      buildType: LIBRARY

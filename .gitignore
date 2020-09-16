@@ -15,7 +15,7 @@ develop-eggs/
 
 # library scratch
 .coverage
-zdevelop/tests/_reports/
+zdevelop/tests/_reports/*
 coverage.out
 zdevelop/scratch/*
 
@@ -30,7 +30,10 @@ ENV/
 
 # Build Detritus
 bin/
-./build/
+vendor/
+.vendor/
+build/
+.build/
 zdocs/build
 dist/
 lib/

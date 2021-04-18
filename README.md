@@ -32,7 +32,7 @@ For library development guide,
 
 ### Prerequisites
 
-Golang 1.3+, Python 3.6+
+Golang 1.6+, Python 3.6+
 
 ## Authors
 

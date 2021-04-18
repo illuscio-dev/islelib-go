@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     <a href="https://goreportcard.com/report/github.com/illuscio-dev/islelib-go"><img src="https://goreportcard.com/badge/github.com/illuscio-dev/islelib-go" alt="click to see report card"></a>
-    <a href="https://codeclimate.com/github/[org]/[project]/maintainability"><img src="https://api.codeclimate.com/v1/badges/95ecc50811b5811df7b2/maintainability" alt="click to see report"></a>
+    <a href="https://codeclimate.com/github/[org]/[project]/maintainability"><img src="https://api.codeclimate.com/v1/badges/[ProjectID]/maintainability" alt="click to see report"></a>
 </p>
 <p align="center">
     <a href="https://github.com/illuscio-dev/islelib-go"><img src="https://img.shields.io/github/go-mod/go-version/illuscio-dev/islelib-go" alt="Repo"></a>

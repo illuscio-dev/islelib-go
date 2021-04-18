@@ -27,6 +27,9 @@ test:
 .PHONY: lint
 lint:
 	-revive -config revive.toml ./...
+	-go vet ./...
+	-golint ./...
+	-find . -type f | grep -v zdevelop/ | grep -v zdocs/build/ | xargs misspell -error
 
 .PHONY: format
 format:
@@ -54,7 +57,7 @@ install-dev:
 
 # Installs command line tools for development
 .PHONY: install-tools
-install-globals:
+install-tools:
 	# Creates html report of tests.
 	-go install github.com/ains/go-test-html
 	# Creates API doc server.
@@ -65,6 +68,8 @@ install-globals:
 	-go install github.com/mgechev/revive
 	# Converts to junit for making html reports
 	-go install github.com/jstemmer/go-junit-report
+	# Catches misspelling
+	-go install github.com/client9/misspell/cmd/misspell
 	# Converts junit reports into pretty html
 	-npm i -g xunit-viewer
 
@@ -73,9 +78,6 @@ install-globals:
 doc:
 	rm -rf ./zdocs/build
 	mkdir ./zdocs/build
-	# Rip API docs from godoc. This tools spins up a godoc server and downloads
-	# module docs
-	docmodule-go
 	python setup.py build_sphinx -E
 	sleep 1
 	-python3 ./zdevelop/make_scripts/open_docs.py

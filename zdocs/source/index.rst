@@ -24,7 +24,7 @@ Basic Usage
 ===========
 
    >>> import islelib
-   [basic useage example goes here]
+   [basic usage example goes here]
 
 Islelib comes with a number of pre-built quality-of-life macros for developers so they
 can code more and manage less, most of which are accessed through ``make`` commands.
@@ -171,7 +171,7 @@ your own libraries. A guide for how to do that can be found here:
 ------------------------
 
 Please reference the relevant documentation for registering your library in Github,
-Readthedocs, Azure Pipelines, etc. Links to relevant guides can be found below:
+Azure Pipelines, etc. Links to relevant guides can be found below:
 
 [Guides need to be written]
 
@@ -199,6 +199,9 @@ To check the formatting of your library, type: ::
 This will run the following tools to tell you where adjustments need to be made:
 
    * `Revive`_
+   * `Go Vet <https://golang.org/cmd/vet/>`_
+   * `Golint <https://github.com/golang/lint>`_
+   * `Misspell <https://github.com/client9/misspell>`_
 
 `Revive`_ will check your formatting and report any instances where
 code does not conform to it's standards. The configuration file for which rules revive
@@ -269,15 +272,12 @@ High level documentation's entry point is: ::
 
 Which is where the text you are currently reading is located.
 
-During the build process, API documentation is automatically generated from `GoDoc`_
+During the build process, API documentation can be automatically generated from `GoDoc`_
 and included as static files. In order to link to this generated API docs within the
 high level docs, type the following: ::
 
     API documentation is created using godoc and can be
     `found here <_static/godoc-root.html>`_.
-
-Example: API documentation is created using godoc and can be
-`found here <_static/godoc-root.html>`_.
 
 To build docs for your new library, type: ::
 
